@@ -1,0 +1,1 @@
+-- Here you can copy your SQL query from Supabase 
