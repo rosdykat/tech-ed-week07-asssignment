@@ -1,5 +1,6 @@
 // This form will send users input to the server CREATE route
 import { useState } from "react";
+import "./Form.css";
 
 export default function Form() {
   // State to store data
@@ -57,7 +58,7 @@ export default function Form() {
   //     }
   // ! Example =======================
   return (
-    <>
+    <div className="submitForm">
       <h1>Form</h1>
       <form onSubmit={handleSubmit}>
         <fieldset>
@@ -103,6 +104,6 @@ export default function Form() {
       </form>
       {/* Set up an accessible form with semantic tags */}
       {/* Remember to track the input changes (value) */}
-    </>
+    </div>
   );
 }

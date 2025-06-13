@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import pg from "pg";
 import dotenv from "dotenv";
+import e from "express";
 // Configs
 dotenv.config();
 const app = express();
@@ -38,28 +39,42 @@ app.get("/get_tags", async (request, response) => {
 app.post("/add_posts", async (request, response) => {
   const body = await request.body;
 
-  const tag = await db.query(
-    `INSERT INTO sticky_tags (tag) VALUES ($1) RETURNING id`,
-    [body.tag]
-  );
+  // Selects the id from tags
+  try {
+    const existingTag = await db.query(
+      // select id from sticky tags where the tag = whatever tag was submitted
+      `SELECT id FROM sticky_tags WHERE tag = $1`,
+      [body.tag]
+    );
+    // creates variable named tagId - given a value below
+    let tagId;
 
-  const query = await db.query(
-    `INSERT INTO sticky_posts (title, post, from_user, note_id)
+    //This part checks if the tag already exists, and if so it assigns the tagId with its value
+    if (existingTag.rows.length > 0) {
+      tagId = existingTag.rows[0].id;
+    } else {
+      // the else is triggered if the tag does not already exist, and therefore creates a new one and returns its ID
+      const tag = await db.query(
+        `INSERT INTO sticky_tags(tag) VALUES($1) RETURNING id;`,
+
+        [body.tag]
+      );
+      tagId = tag.rows[0].id;
+    }
+    // adding the form results to the sticky posts table, including the tag ID which will either be a new tag, or an existing tag through the try/if statement
+    const query = await db.query(
+      `INSERT INTO sticky_posts (title, post, from_user, note_id)
     VALUES ($1, $2, $3, $4)`,
-    [body.title, body.post, body.from_user, body.note_id]
-  );
-  response.json(query);
+      [body.title, body.post, body.from_user, tagId]
+    );
+    // error handling
+    response.status(201).json(query.rows[0]);
+  } catch (error) {
+    console.error("Error!!", error);
+    response.status(500).json({ error: "Server error" });
+  }
 });
 
-// app.post("/add_tags", async (request, response) => {
-//   const body = await request.body;
-//   const query = await db.query(
-//     `INSERT INTO sticky_tags (tag)
-//     VALUES ($1,)`,
-//     [body.tag]
-//   );
-//   response.json(query);
-// });
 // ======================================
 
 // ? STRETCH: I want to DELETE data
