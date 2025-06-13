@@ -1,15 +1,20 @@
 .stickyNoteContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  grid-area: 1 / 1 / span 2 / span 3;
+  grid-area: 1 / 2 / span 2 / span 1;
   gap: 1rem;
   flex-wrap: wrap;
+  object-fit: cover;
+  overflow-x: auto;
+  max-height: 100%;
+  margin: 1rem;
 }
 
 .stickies {
   border: 1px solid;
-  height: 10rem;
-  width: 7rem;
+  height: 15rem;
+  width: 13rem;
+  overflow-wrap: break-word;
 }
