@@ -39,52 +39,53 @@ export default function Form() {
 
   return (
     <div className="submitForm">
-      <h1>Form</h1>
       <form onSubmit={handleSubmit}>
-        <fieldset>
-          <legend>The form</legend>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            name="title"
-            className="title"
-            required
-            placeholder="title"
-            value={formData.title}
-            onChange={handleChange}
-          />
-          <label htmlFor="post">Post:</label>
-          <input
-            type="text"
-            name="post"
-            className="post"
-            required
-            placeholder="post"
-            value={formData.post}
-            onChange={handleChange}
-          />
-          <label htmlFor="from_user">Username:</label>
-          <input
-            type="text"
-            name="from_user"
-            className="from_user"
-            required
-            placeholder="Username"
-            value={formData.from_user}
-            onChange={handleChange}
-          />
-          <label htmlFor="tag">Tag</label>
-          <input
-            type="text"
-            name="tag"
-            className="tag"
-            required
-            placeholder="Tag"
-            value={formData.tag}
-            onChange={handleChange}
-          />
-          <button type="submit">Submit</button>
-        </fieldset>
+        <div className="formBox">
+          <fieldset>
+            <legend>note</legend>
+            <label htmlFor="title">Title:</label>
+            <input
+              type="text"
+              name="title"
+              className="title"
+              required
+              placeholder="title"
+              value={formData.title}
+              onChange={handleChange}
+            />
+            <label htmlFor="post">Post:</label>
+            <input
+              type="text"
+              name="post"
+              className="post"
+              required
+              placeholder="post"
+              value={formData.post}
+              onChange={handleChange}
+            />
+            <label htmlFor="from_user">Username:</label>
+            <input
+              type="text"
+              name="from_user"
+              className="from_user"
+              required
+              placeholder="Username"
+              value={formData.from_user}
+              onChange={handleChange}
+            />
+            <label htmlFor="tag">Tag</label>
+            <input
+              type="text"
+              name="tag"
+              className="tag"
+              required
+              placeholder="Tag"
+              value={formData.tag}
+              onChange={handleChange}
+            />
+            <button type="submit">Submit</button>
+          </fieldset>
+        </div>
       </form>
       {/* Set up an accessible form with semantic tags */}
       {/* Remember to track the input changes (value) */}

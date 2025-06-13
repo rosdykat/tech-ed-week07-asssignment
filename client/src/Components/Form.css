@@ -1,3 +1,33 @@
 .submitForm {
   grid-area: 3 / 2 / span 1 / span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.formBox {
+  /* margin: 0 auto; */
+  margin-bottom: 5%;
+  border: 1px solid;
+  box-shadow: 10px 10px;
+  padding: 1rem;
+  background-color: #bae8e8;
+  border-bottom-right-radius: 20px;
+}
+
+form fieldset {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  border: 2px dotted;
+}
+legend {
+  /* font-family: "Courier New", Courier, monospace; */
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
