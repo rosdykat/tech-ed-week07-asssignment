@@ -17,9 +17,9 @@ export default function StickyNote() {
   return (
     <div className="stickyNoteContainer">
       {formData.map((item) => (
-        <li className="stickies" key={item.id}>
+        <div className="stickies" key={item.id}>
           <h1>{item.title}</h1> <p>{item.post}</p> {item.from_user} {item.tag}
-        </li>
+        </div>
       ))}
     </div>
   );
