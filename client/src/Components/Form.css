@@ -9,7 +9,7 @@
 .formBox {
   /* margin: 0 auto; */
   margin-bottom: 5%;
-  border: 1px solid;
+  border: 1px dashed;
   box-shadow: 10px 10px;
   padding: 1rem;
   background-color: #bae8e8;

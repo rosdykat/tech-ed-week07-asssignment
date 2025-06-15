@@ -8,6 +8,8 @@ export default function StickyNote() {
     async function fetchData() {
       const response = await fetch("http://localhost:8080/get_posts");
       const data = await response.json();
+      // Organising the data by the value of it's ID to be displayed in the correct order.
+      const orderedNotes = data.sort((postA, postB) => postA.id - postB.id);
 
       const tagResponse = await fetch("http://localhost:8080/get_tags");
       const tagData = await tagResponse.json();
@@ -15,7 +17,7 @@ export default function StickyNote() {
       //   console.log(tagData);
       //   console.log(data);
       setFormData({
-        posts: data,
+        posts: orderedNotes,
         tags: tagData,
       });
     }
@@ -30,10 +32,18 @@ export default function StickyNote() {
 
         return (
           <div className="stickies" key={post.id}>
+            <div className="titleContainer">
             <h1>{post.title}</h1>
+            </div>
+            <div className="postContainer">
             <p>{post.post}</p>
-            {post.from_user}
-            <p>{tag.tag}</p>
+            <div className="userContainer">
+            <h2><u>{post.from_user}</u></h2>
+            </div>
+            </div>
+            <div className="tagContainer">
+            <h2>{tag.tag}</h2>
+            </div>
           </div>
         );
       })}
