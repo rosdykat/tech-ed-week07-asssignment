@@ -6,12 +6,12 @@ export default function StickyNote() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("http://localhost:8080/get_posts");
+      const response = await fetch("https://tech-ed-week07-asssignment2.onrender.com/get_posts");
       const data = await response.json();
       // Organising the data by the value of it's ID to be displayed in the correct order.
       const orderedNotes = data.sort((postA, postB) => postB.id - postA.id);
 
-      const tagResponse = await fetch("http://localhost:8080/get_tags");
+      const tagResponse = await fetch("https://tech-ed-week07-asssignment2.onrender.com/get_tags");
       const tagData = await tagResponse.json();
       // Recieving the data from both get posts and get tags
       //   console.log(tagData);
