@@ -1,4 +1,13 @@
 .header {
   /* font-family: "Courier New", Courier, monospace; */
   color: #272343;
+  z-index: 5;
+  background-color: white;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+  border: 1px dashed black;
+  border-radius: 20px;
 }
