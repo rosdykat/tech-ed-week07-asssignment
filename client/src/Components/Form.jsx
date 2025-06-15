@@ -21,7 +21,7 @@ export default function Form() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetch("http://localhost:8080/add_posts", {
+    fetch("https://tech-ed-week07-asssignment2.onrender.com/add_posts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
