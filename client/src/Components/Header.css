@@ -2,12 +2,29 @@
   /* font-family: "Courier New", Courier, monospace; */
   color: #272343;
   z-index: 5;
-  background-color: white;
-  height: 20%;
+  background-color: #bae8e8;
+  height: 10vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
   border: 1px dashed black;
-  border-radius: 20px;
+  box-sizing: border-box;
+  border-bottom-right-radius: 20px;
+  margin-top: 48px;
+}
+
+
+@media screen and (max-width: 600px) {
+  .header {
+    grid-area: 1 / 1 / span 1 / span 1;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;  
+    box-sizing: border-box;
+    height: auto; 
+    max-width: 100vw; 
+    overflow-wrap: break-word;
+    border-bottom-left-radius: 20px;
+}
 }

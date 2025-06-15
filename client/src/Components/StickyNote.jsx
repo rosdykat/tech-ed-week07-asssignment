@@ -9,7 +9,7 @@ export default function StickyNote() {
       const response = await fetch("http://localhost:8080/get_posts");
       const data = await response.json();
       // Organising the data by the value of it's ID to be displayed in the correct order.
-      const orderedNotes = data.sort((postA, postB) => postA.id - postB.id);
+      const orderedNotes = data.sort((postA, postB) => postB.id - postA.id);
 
       const tagResponse = await fetch("http://localhost:8080/get_tags");
       const tagData = await tagResponse.json();
