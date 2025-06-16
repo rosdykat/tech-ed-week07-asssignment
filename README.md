@@ -1,8 +1,10 @@
 ## Week 7
 
-For this assignment, I created an app called sticky.note. The initial idea of this was quite simple, using a one to many database to submit and recieve post-it notes of information.
+For this assignment, I created an app called sticky.note!
 
-I decided on this as although the idea is simple, the tag database connected by a foreign key would allow me to alter this app for a variety of uses, such as a job tracker, to do list, ect. As you'd be able to submit and filter data through tags.
+The initial idea of this was quite simple, as I used a one to many database to submit and recieve post-it notes containing unique information (title, post, user) and a tag that shares an ID with any tags of the same name.
+
+I liked this idea as although it was simple, a tag database connected by a foreign key would allow me to alter this app for a variety of uses such as a job tracker, to do list, ect as you'd be able to submit and filter data through tags.
 
 I didn't manage to have a feature that lets you filter through the tags in the end, but as each tag id matches the note_id of any post that shares that tag, the hard part is done, and it'll be simple to add this in the future!
 
